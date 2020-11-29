@@ -66,7 +66,7 @@
       ${if} $R0 == 0
         # wait to give a chance to exit gracefully
         Sleep 1000
-        nsExec::Exec `taskkill /f /t /im "${APP_EXECUTABLE_FILENAME}" /fi "PID ne $pid"` $R0
+        nsExec::Exec `taskkill /f /im "${APP_EXECUTABLE_FILENAME}" /fi "PID ne $pid"` $R0
         ${If} $R0 != 0
           DetailPrint `Waiting for "${PRODUCT_NAME}" to close (taskkill exit code $R0).`
           Sleep 2000
